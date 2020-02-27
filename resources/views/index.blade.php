@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Caviar - Premium Restaurant Template</title>
+    <title>information of Tea</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -56,24 +56,15 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="index.html">caviar</a>
+                        <a class="navbar-brand" href="/">TEA</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#caviarNav" aria-controls="caviarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                         <div class="collapse navbar-collapse" id="caviarNav">
                             <ul class="navbar-nav ml-auto" id="caviarMenu">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="index.html">Home</a>
-                                        <a class="dropdown-item" href="menu.html">Menu</a>
-                                        <a class="dropdown-item" href="regular-page.html">Regular Page</a>
-                                        <a class="dropdown-item" href="contact.html">Contact</a>
-                                    </div>
-                                </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#about">About Us</a>
+                                    <a class="nav-link" href="#about">Sejarah</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#menu">Menu</a>
@@ -87,9 +78,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#reservation">Reservation</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="contact.html">Contact</a>
-                                </li>
+                                </li> --}}
                             </ul>
                             <!-- Search Btn -->
                             <div class="caviar-search-btn">
@@ -114,7 +105,7 @@
         <!-- Welcome Slides -->
         <div class="caviar-hero-slides owl-carousel">
             <!-- Single Slides -->
-            <div class="single-hero-slides bg-img" style="background-image: url(assets/frontend/caviar/img/bg-img/hero-1.jpg);">
+            <div class="single-hero-slides bg-img" style="background-image: url(assets/img/b.jpg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-11 col-md-6 col-lg-4">
@@ -127,10 +118,10 @@
                     </div>
                 </div>
                 <!-- Slider Nav -->
-                <div class="hero-slides-nav bg-img" style="background-image: url(assets/frontend/caviar/img/bg-img/hero-2.jpg);"></div>
+                <div class="hero-slides-nav bg-img" style="background-image: url(assets/img/c.jpg);"></div>
             </div>
             <!-- Single Slides -->
-            <div class="single-hero-slides bg-img" style="background-image: url(assets/frontend/caviar/img/bg-img/hero-2.jpg);">
+            <div class="single-hero-slides bg-img" style="background-image: url(assets/img/c.jpg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-11 col-md-6 col-lg-4">
@@ -143,7 +134,7 @@
                     </div>
                 </div>
                 <!-- Slider Nav -->
-                <div class="hero-slides-nav bg-img" style="background-image: url(assets/frontend/caviar/img/bg-img/hero-1.jpg);"></div>
+                <div class="hero-slides-nav bg-img" style="background-image: url(assets/img/b.jpg);"></div>
             </div>
         </div>
     </section>
@@ -156,12 +147,12 @@
             <div class="row align-items-center">
                 <div class="col-12 col-md-6">
                     <div class="about-us-thumbnail wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="{{asset('assets/frontend/caviar/img/bg-img/about-1.jpg')}}" alt="">
+                        <img src="{{asset('assets/img/a.jpg')}}" alt="">
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-5 ml-md-auto">
                     <div class="section-heading">
-                        <h2>About Us</h2>
+                        <h2>Sejarah Teh</h2>
                     </div>
                     <div class="about-us-content">
                         <span>restaurant style</span>
@@ -170,7 +161,7 @@
                 </div>
             </div>
             <!-- About Us Single Area -->
-            <div class="about-us-second-part">
+            {{-- <div class="about-us-second-part"> --}}
                 <div class="row align-items-center pt-200">
                     <div class="col-12 col-md-6 col-lg-5">
                         <div class="about-us-content">
@@ -180,7 +171,7 @@
                     </div>
                     <div class="col-12 col-md-6 ml-md-auto">
                         <div class="about-us-thumbnail wow fadeInUp" data-wow-delay="0.5s">
-                            <img src="{{asset('assets/frontend/caviar/img/bg-img/about-2.jpg')}}" alt="">
+                            <img src="{{asset('assets/img/d.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -202,34 +193,37 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="{{asset('assets/frontend/caviar/img/menu-img/dish-1.png')}}" alt="">
+                @foreach ($teh as $data)
+                 <div class="col-12 col-sm-6 col-md-4">
+
+                        <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
+                        <img src="{{asset('assets/img/teh/'.$data->gambar.'')}}" alt="">
                         <div class="dish-info">
-                            <h6 class="dish-name">Lorem Ipsum Dolor Sit Amet</h6>
-                            <p class="dish-price">$45</p>
+                            <h6 class="dish-name">{{$data->nama_teh}}</h6>
+                            <p class="dish-price"><a href=" {{url('shop/' .$data->id)}} ">{{$data->harga_teh}}</a></p>
                         </div>
+                        <form action="{{ route('front.cart') }}" method="POST">
+  @csrf
+  <div class="product_count">
+    <input type="hidden" name="qty" id="sst" maxlength="12" value="1">
+
+    <!-- BUAT INPUTAN HIDDEN YANG BERISI ID PRODUK -->
+    <input type="hidden" name="product_id" value="{{ $data->id }}" class="form-control">
+
+  </div>
+  <div class="card_area">
+    <a href="{{ url('frontend/ecommerce/cart.blade.php')}}"></a>
+    <!-- UBAH JADI BUTTON -->
+    <button class="main_btn">Add to Cart</button>
+    <!-- UBAH JADI BUTTON -->
+
+  </div>
+</form>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1s">
-                        <img src="{{asset('assets/frontend/caviar/img/menu-img/dish-2.png')}}" alt="">
-                        <div class="dish-info">
-                            <h6 class="dish-name">Lorem Ipsum</h6>
-                            <p class="dish-price">$45</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="1.5s">
-                        <img src="{{asset('assets/frontend/caviar/img/menu-img/dish-3.png')}}" alt="">
-                        <div class="dish-info">
-                            <h6 class="dish-name">Lorem Ipsum Dolor Sit Amet</h6>
-                            <p class="dish-price">$45</p>
-                        </div>
-                    </div>
-                </div>
+                 @endforeach
             </div>
+
         </div>
     </section>
     <!-- ****** Dish Menu Area End ****** -->

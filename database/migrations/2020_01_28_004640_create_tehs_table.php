@@ -15,8 +15,11 @@ class CreateTehsTable extends Migration
     {
         Schema::create('tehs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedbigInteger('id_kategori');
+            $table->foreign('id_kategori')->references('id')->on('kategoris')->onDelete('cascade');
             $table->string('nama_teh');
             $table->string('nutrisi_teh');
+            $table->string('harga_teh');
             $table->string('gambar');
             $table->timestamps();
         });

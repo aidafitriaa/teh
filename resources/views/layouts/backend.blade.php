@@ -155,11 +155,14 @@
                                         <a class="nav-link" href="{{route('teh.index')}}">Teh</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{route('pengolahan.index')}}">Pengolahan</a>
+                                            <a class="nav-link" href="{{route('kategori.index')}}">Kategori</a>
                                         </li>
                                         <li class="nav-item">
-                                                        <a class="nav-link" href="{{route('kategori.index')}}">Kategori</a>
-                                                    </li>
+                                            <a class="nav-link" href="{{route('stok.index')}}">Stok</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('transaksi.index')}}">Transaksi</a>
+                                        </li>
                                                 </ul>
                                             </div>
                                         </li>

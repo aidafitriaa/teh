@@ -77,6 +77,30 @@
                                 <label for="">Nutrisi Teh</label>
                                 <input class="form-control" value="{{$teh->nutrisi_teh}}"type="text" name="nutrisi_teh">
                             </div>
+                             <div class="form-group">
+                                <label for="">Harga Teh</label>
+                                <input class="form-control" value="{{$teh->harga_teh}}"type="text" name="harga_teh">
+                            </div>
+                             <div class="form-group">
+                                <label for="">Kategori</label>
+                                <select class="form-control{{$errors->has('kategori') ? ' has-error' : '' }}" type="text"
+                                    name="id_kategori" id="s2_demo3" required>
+                                    @foreach ($kategori as $data)
+                                        <option value="{{$data->id}}"
+                                            @if($data->id == $teh->id_kategori) selected="selected" @endif>{{$data->nama_kategori}}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('kategori'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('kategori')}}</strong>
+                                </span>
+                                @endif
+                            </div>
+                             {{-- <div class="form-group">
+                                <label for="">Kategori</label>
+                                <input class="form-control" value="{{$teh->kategori}}"type="text" name="kategori">
+                            </div> --}}
                             <div class="form-group">
                                 <label for="">Gambar</label>
                                 <img src="{{asset('assets/img/teh/'.$teh->gambar)}}" alt="" height="250px" width="250px">

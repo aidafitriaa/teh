@@ -62,34 +62,39 @@
             <div class="col-md-8">
                 <div class="card">
                     <center>
-                        <div class="card-header">Edit Data Pengolahan</div>
+                        <div class="card-header">Show Data Stok</div>
                     </center>
 
                     <div class="card-body">
-                        <form action="{{route('pengolahan.update', $pengolahan->id)}}" method="POST">
+                        <form action="{{route('stok.edit', $stok->id)}}" method="POST">
                             <input type="hidden" name="_method" value="PATCH">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label for="">Nama Teh</label>
-                                <input class="form-control" value="{{$pengolahan->nama_teh}}"type="text" name="nama_teh">
+                                <input class="form-control" value="{{$stok->nama_teh}}"type="text" name="nama_teh">
                             </div>
                             <div class="form-group">
-                                <label for="">Bahan Teh</label>
-                                <input class="form-control" value="{{$pengolahan->nutrisi_teh}}"type="text" name="bahan_teh">
+                                <label for="">Jumlah Barang</label>
+                                <input class="form-control" value="{{$stok->jumlah_barang}}"type="text" name="jumlah_barang">
                             </div>
                             <div class="form-group">
-                                <label for="">Proses</label>
-                                <input class="form-control" value="{{$pengolahan->proses}}"type="text" name="proses">
+                                <label for="">Barang Masuk</label>
+                                <input class="form-control" value="{{$stok->barang_masuk}}"type="text" name="barang_masuk">
                             </div>
                             <div class="form-group">
-                                <label for="">Gambar</label>
-                                <img src="{{asset('assets/img/teh/'.$pengolahan->gambar)}}" alt="" height="250px" width="250px">
-                                <input type="file" class="form-control" name="gambar">
+                                <label for="">Barang Keluar</label>
+                                <input class="form-control" value="{{$stok->barang_keluar}}"type="text" name="barang_keluar">
                             </div>
                             <div class="form-group">
+                                <label for="">Sisa Barang</label>
+                                <input class="form-control" value="{{$stok->sisa_barang}}"type="text" name="sisa_barang">
+                            </div>
+                            <div>
+                                <div class="form-group">
                                 <button type="submit" class="btn btn-outline-info">
                                     Simpan Data
                                 </button>
+                                 </div>
                             </div>
                         </form>
                     </div>
@@ -98,5 +103,3 @@
         </div>
     </div>
 @endsection
-
-

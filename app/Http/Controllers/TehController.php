@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\teh;
+use App\kategori;
 use Session;
 
 class TehController extends Controller
@@ -27,7 +28,8 @@ class TehController extends Controller
     public function create()
     {
         $teh = teh::all();
-        return view('backend.teh.create', compact('teh'));
+        $kategori = kategori::all();
+        return view('backend.teh.create', compact('teh','kategori'));
     }
 
     /**
@@ -41,6 +43,8 @@ class TehController extends Controller
         $teh = new teh();
         $teh->nama_teh = $request->nama_teh;
         $teh->nutrisi_teh = $request->nutrisi_teh;
+        $teh->harga_teh = $request->harga_teh;
+        $teh->id_kategori = $request->id_kategori;
 
         // foto
         if ($request->hasFile('gambar')) {
@@ -84,7 +88,8 @@ class TehController extends Controller
     public function edit($id)
     {
         $teh = teh::findOrFail($id);
-        return view('backend.teh.edit',compact('teh'));
+        $kategori = kategori::all();
+        return view('backend.teh.edit',compact('teh','kategori'));
     }
 
     /**
@@ -99,6 +104,9 @@ class TehController extends Controller
         $teh = teh::findOrFail($id);
         $teh->nama_teh = $request->nama_teh;
         $teh->nutrisi_teh = $request->nutrisi_teh;
+        $teh->harga_teh = $request->harga_teh;
+        $teh->id_kategori = $request->id_kategori;
+
 
         // foto
         if ($request->hasFile('gambar')) {

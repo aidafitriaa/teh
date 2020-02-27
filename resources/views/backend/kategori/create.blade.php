@@ -69,8 +69,8 @@
                         <form action="{{route('kategori.store')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
-                                <label for="">Nama Teh</label>
-                                <input class="form-control" type="text" name="nama_teh" id="">
+                                <label for="">Nama Kategori</label>
+                                <input class="form-control" type="text" name="nama_kategori" id="">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-outline-info">

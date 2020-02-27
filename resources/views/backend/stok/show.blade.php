@@ -59,43 +59,40 @@
 @section('content')
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
                     <center>
-                        <div class="card-header">Tambah Data Pengolahan</div>
+                        <div class="card-header">Show Data Stok</div>
                     </center>
 
                     <div class="card-body">
-                        <form action="{{route('pengolahan.store')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('stok.show', $stok->id)}}" method="POST">
+                            <input type="hidden" name="_method" value="PATCH">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label for="">Nama Teh</label>
-                                <input class="form-control" type="text" name="nama_teh" id="">
+                                <input class="form-control" value="{{$stok->nama_teh}}"type="text" name="nama_teh"disabled>
                             </div>
                             <div class="form-group">
-                                <label for="">Bahan Teh</label>
-                                <input class="form-control" type="text" name="bahan_teh" id="">
+                                <label for="">Jumlah Barang</label>
+                                <input class="form-control" value="{{$stok->jumlah_barang}}"type="text" name="jumlah_barang" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="">Proses</label>
-                                <input class="form-control" type="text" name="proses" id="">
+                                <label for="">Barang Masuk</label>
+                                <input class="form-control" value="{{$stok->barang_masuk}}"type="text" name="barang_masuk" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="">Gambar</label>
-                                <input class="form-control
-                                @error('gambar') is-invalid @enderror" type="file"
-                                name="gambar" id="" required>
-                                @error('gambar')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{$message}}</strong>
-                                </span>
-                                @enderror
+                                <label for="">Barang Keluar</label>
+                                <input class="form-control" value="{{$stok->barang_keluar}}"type="text" name="barang_keluar" disabled>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-outline-info">
-                                        Simpan Data
-                                </button>
+                                <label for="">Sisa Barang</label>
+                                <input class="form-control" value="{{$stok->sisa_barang}}"type="text" name="sisa_barang" disabled>
                             </div>
+                            <div>
+                                <div class="form-group">
+                                    <a href="{{url('/admin/stok')}}" class="btn btn-outline-info">Kembali</a>
+                                </div>
                         </form>
                     </div>
                 </div>

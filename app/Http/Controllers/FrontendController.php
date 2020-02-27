@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\teh;
 
 class FrontendController extends Controller
 {
@@ -13,7 +14,14 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $teh = teh::orderBy('created_at', 'desc')->take(10)->get();
+        return view('index', compact('teh'));
+    }
+
+     public function shop($id)
+    {
+        $teh = teh::findOrFail($id);
+        return view('frontend.shop', compact('teh'));
     }
 
     /**

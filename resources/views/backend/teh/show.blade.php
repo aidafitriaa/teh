@@ -77,6 +77,10 @@
                                 <label for="">Nutrisi Teh</label>
                                 <input class="form-control" value="{{$teh->nutrisi_teh}}"type="text" name="nutrisi_teh"disabled>
                             </div>
+                             <div class="form-group">
+                                <label for="">Harga Teh</label>
+                                <input class="form-control" value="{{$teh->harga_teh}}"type="text" name="harga_teh"disabled>
+                            </div>
                             <div class="form-group">
                                 <label for="">Gambar</label>
                                 <img src="{{asset('assets/img/teh/'.$teh->gambar)}}" alt="" height="250px" width="250px">

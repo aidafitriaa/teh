@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\kategori;
+use App\transaksi;
+use App\teh;
 use Session;
 
-class KategoriController extends Controller
+class TransaksiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = kategori::orderBy('created_at','desc')->get();
-        return view('backend.kategori.index', compact('kategori'));
+         $transaksi = transaksi::all();
+        return view('backend.transaksi.index', compact('transaksi'));
     }
 
     /**
@@ -26,7 +27,9 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('backend.kategori.create');
+        $transaksi = transaksi::all();
+        $teh = teh::all();
+        return view('backend.transaksi.create', compact('transaksi','teh'));
     }
 
     /**
@@ -38,15 +41,17 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $kategori = new kategori();
-        $kategori->nama_kategori = $request->nama_kategori;
-        $kategori->slug = str_slug($request->nama_kategori, '-');
-        $kategori->save();
-        Session::flash("flash_notification", [
+        $transaksi = new transaksi();
+        $transaksi->nama = $request->nama;
+        $transaksi->id_teh = $request->id_teh;
+        $transaksi->jumlah_teh = $request->jumlah_teh;
+        $transaksi->save();
+        Session::flash("flash_notification",[
             "level" => "success",
-            "message" => "Berhasil menyimpan kategori <b>$kategori->nama_kategori</b>!"
+            "message" => "Berhasil menyimpan <b>"
+                         . $transaksi->nama_teh."</b>"
         ]);
-        return redirect()->route('kategori.index');
+        return redirect()->route('transaksi.index');
     }
 
     /**
@@ -57,8 +62,8 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-         $kategori = kategori::findOrFail($id);
-        return view('backend.kategori.show',compact('kategori'));
+         $transaksi = transaksi::findOrFail($id);
+        return view('backend.transaksi.show',compact('transaksi'));
     }
 
     /**
@@ -69,8 +74,8 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        $kategori = kategori::findOrFail($id);
-        return view('backend.kategori.edit',compact('kategori'));
+        $transaksi = transaksi::findOrFail($id);
+        return view('backend.transaksi.edit',compact('transaksi'));
     }
 
     /**
@@ -82,15 +87,17 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kategori = kategori::findOrFail($id);
-        $kategori->nama_kategori = $request->nama_kategori;
-        $kategori->slug = str_slug($request->nama_kategori, '-');
-        $kategori->save();
-        Session::flash("flash_notification", [
+        $transaksi = transaksi::findOrFail($id);
+        $transaksi->nama = $request->nama;
+        $transaksi->nama_teh = $request->nama_teh;
+        $transaksi->jumlah_teh = $request->jumlah_teh;
+        $transaksi->save();
+        Session::flash("flash_notification",[
             "level" => "success",
-            "message" => "Berhasil menyimpan kategori <b>$kategori->nama_kategori</b>!"
+            "message" => "Berhasil menyimpan <b>"
+                         . $transaksi->judul."</b>"
         ]);
-        return redirect()->route('kategori.index');
+        return redirect()->route('transaksi.index');
     }
 
     /**
@@ -101,13 +108,13 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-         $kategori = kategori::findOrfail($id);
-        if(!kategori::destroy($id)) return redirect()->back();
+         $transaksi = transaksi::findOrfail($id);
+        if(!transaksi::destroy($id)) return redirect()->back();
         Session::flash("flash_notification",[
             "level" => "Success",
             "message" => "Berhasil menghapus<b>"
-                         . $kategori->kategori."</b>"
+                         . $transaksi->transaksi."</b>"
         ]);
-        return redirect()->route('kategori.index');
+        return redirect()->route('transaksi.index');
     }
 }

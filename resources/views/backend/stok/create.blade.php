@@ -59,37 +59,46 @@
 @section('content')
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <center>
-                        <div class="card-header">Show Data Teh</div>
+                        <div class="card-header">Tambah Data Stok</div>
                     </center>
 
                     <div class="card-body">
-                        <form action="{{route('pengolahan.show', $pengolahan->id)}}" method="POST">
-                            <input type="hidden" name="_method" value="PATCH">
+                        <form action="{{route('stok.store')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label for="">Nama Teh</label>
-                                <input class="form-control" value="{{$pengolahan->nama_teh}}"type="text" name="nama_teh"disabled>
+                                 <select class="form-control{{$errors->has('teh') ? ' has-error' : '' }}" type="text"
+                                    name="id_teh" id="s2_demo3" required>
+                                    @foreach ($teh as $data)
+                                        <option value="{{$data->id}}">
+                                        {{$data->nama_teh}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Bahan Teh</label>
-                                <input class="form-control" value="{{$pengolahan->bahan_teh}}"type="text" name="bahan_teh"disabled>
+                                <label for="">Jumlah Barang</label>
+                                <input class="form-control" type="text" name="jumlah_barang" id="">
                             </div>
                             <div class="form-group">
-                                <label for="">Proses</label>
-                                <input class="form-control" value="{{$pengolahan->proses}}"type="text" name="proses"disabled>
+                                <label for="">Barang Masuk</label>
+                                <input class="form-control" type="text" name="barang_masuk" id="">
                             </div>
                             <div class="form-group">
-                                <label for="">Gambar</label>
-                                <img src="{{asset('assets/img/teh/'.$pengolahan->gambar)}}" alt="" height="250px" width="250px">
-                                {{-- <input type="file" class="form-control" name="gambar"disabled> --}}
+                                <label for="">Barang Keluar</label>
+                                <input class="form-control" type="text" name="barang_keluar" id="">
                             </div>
-                            <div>
-                                <div class="form-group">
-                                    <a href="{{url('/admin/teh')}}" class="btn btn-outline-info">Kembali</a>
-                                </div>
+                            <div class="form-group">
+                                <label for="">Sisa Barang</label>
+                                <input class="form-control" type="text" name="sisa_barang" id="">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-outline-info">
+                                        Simpan Data
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>

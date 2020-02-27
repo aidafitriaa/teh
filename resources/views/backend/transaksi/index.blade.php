@@ -15,9 +15,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <h5 class="card-header">Data Tables pengolahan</h5><br>
+                <h5 class="card-header">Data Tables Transaksi</h5><br>
                 <center>
-                        <a href="{{ route('pengolahan.create') }}"
+                        <a href="{{ route('transaksi.create') }}"
                             class="la la-cloud-upload btn btn-info btn-rounded btn-floating btn-outline">&nbsp;Tambah Data
                         </a>
                 </center>
@@ -26,37 +26,34 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nama pengolahan</th>
-                                <th>Bahan pengolahan</th>
-                                <th>Proses pengolahan</th>
-                                <th>Foto</th>
+                                <th>Nama</th>
+                                <th>Nama Teh</th>
+                                <th>Jumlah Barang</th>
                                 <th style="text-align: center;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                                 @php $no = 1;  @endphp
-                            @foreach ($pengolahan as $data)
+                            @foreach ($transaksi as $data)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$data->nama_teh}}</td>
-                                <td>{{$data->bahan_teh}}</td>
-                                <td>{{$data->proses}}</td>
-                                <td>{{$data->gambar}}</td>
-
-								<td style="text-align: center;">
-                                    <form action="{{route('pengolahan.destroy', $data->id)}}" method="post">
+                                <td>{{$data->nama}}</td>
+                                <td>{{$data->teh->nama_teh}}</td>
+                                <td>{{$data->jumlah_teh}}</td>
+                                <td style="text-align: center;">
+                                    <form action="{{route('transaksi.destroy', $data->id)}}" method="post">
                                         {{csrf_field()}}
-									<a href="{{route('pengolahan.edit', $data->id)}}"
+									<a href="{{route('transaksi.edit', $data->id)}}"
 										class="zmdi zmdi-edit btn btn-warning btn-rounded btn-floating btn-outline"> Edit
                                     </a>
-                                    <a href="{{route('pengolahan.show', $data->id)}}"
+                                    <a href="{{route('transaksi.show', $data->id)}}"
 										class="zmdi zmdi-show btn btn-warning btn-rounded btn-floating btn-outline"> Show
 									</a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<input type="hidden" name="_method" value="DELETE">
 										<button type="submit" class="zmdi zmdi-delete btn-rounded btn-floating btn btn-dangerbtn btn-danger btn-outline"> Delete</button>
 									</form>
-								</td>
+								</form>
                             </tr>
                             @endforeach
                         </tbody>

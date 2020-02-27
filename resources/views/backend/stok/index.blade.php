@@ -15,9 +15,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <h5 class="card-header">Data Tables Teh</h5><br>
+                <h5 class="card-header">Data Tables Stok</h5><br>
                 <center>
-                        <a href="{{ route('teh.create') }}"
+                        <a href="{{ route('stok.create') }}"
                             class="la la-cloud-upload btn btn-info btn-rounded btn-floating btn-outline">&nbsp;Tambah Data
                         </a>
                 </center>
@@ -27,32 +27,29 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nama Teh</th>
-                                <th>Nutrisi Teh</th>
-                                <th>Harga Teh</th>
-                                <th>Kategori</th>
-                                <th>Foto</th>
+                                <th>Jumlah Barang</th>
+                                <th>Barang Masuk</th>
+                                <th>Barang Keluar</th>
+                                <th>Sisa Barang</th>
                                 <th style="text-align: center;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                                 @php $no = 1;  @endphp
-                            @foreach ($teh as $data)
+                            @foreach ($stok as $data)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$data->nama_teh}}</td>
-                                <td>{{$data->nutrisi_teh}}</td>
-                                <td>{{$data->harga_teh}}</td>
-                                <td>{{$data->kategori->nama_kategori}}</td>
+                                <td>{{$data->teh->nama_teh}}</td>
+                                <td>{{$data->jumlah_barang}}</td>
+                                <td>{{$data->barang_masuk}}</td>
+                                <td>{{$data->barang_keluar}}</td>
+                                <td>{{$data->sisa_barang}}</td>
+                                 <td style="text-align: center;">
 
-                                <td><img src="{{ asset ('assets/img/teh/' .$data->gambar. '')}}"
-                                    style="width:100px; height:100px;" alt="Gambar"></td>
-                                    <td style="text-align: center;">
-                                    <form action="{{route('teh.destroy', $data->id)}}" method="post">
-                                        {{csrf_field()}}
-									<a href="{{route('teh.edit', $data->id)}}"
+									<a href="{{route('stok.edit', $data->id)}}"
 										class="zmdi zmdi-edit btn btn-warning btn-rounded btn-floating btn-outline"> Edit
                                     </a>
-                                    <a href="{{route('teh.show', $data->id)}}"
+                                    <a href="{{route('stok.show', $data->id)}}"
 										class="zmdi zmdi-show btn btn-warning btn-rounded btn-floating btn-outline"> Show
 									</a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

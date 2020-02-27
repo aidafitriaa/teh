@@ -27,6 +27,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nama Kategori</th>
+                                <th>Slug</th>
                                 <th style="text-align: center;">Aksi</th>
                             </tr>
                         </thead>
@@ -36,6 +37,7 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$data->nama_kategori}}</td>
+                                <td>{{$data->slug}}</td>
 
 								<td style="text-align: center;">
                                     <form action="{{route('kategori.destroy', $data->id)}}" method="post">
@@ -43,9 +45,9 @@
 									<a href="{{route('kategori.edit', $data->id)}}"
 										class="zmdi zmdi-edit btn btn-warning btn-rounded btn-floating btn-outline"> Edit
                                     </a>
-                                    <a href="{{route('kategori.show', $data->id)}}"
+                                    {{-- <a href="{{route('kategori.show', $data->id)}}"
 										class="zmdi zmdi-show btn btn-warning btn-rounded btn-floating btn-outline"> Show
-									</a>
+									</a> --}}
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<input type="hidden" name="_method" value="DELETE">
 										<button type="submit" class="zmdi zmdi-delete btn-rounded btn-floating btn btn-dangerbtn btn-danger btn-outline"> Delete</button>

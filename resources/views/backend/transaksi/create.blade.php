@@ -62,49 +62,29 @@
             <div class="col-md-12">
                 <div class="card">
                     <center>
-                        <div class="card-header">Tambah Data Teh</div>
+                        <div class="card-header">Tambah Data Transaksi</div>
                     </center>
 
                     <div class="card-body">
-                        <form action="{{route('teh.store')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('transaksi.store')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
-                                <label for="">Nama Teh</label>
-                                <input class="form-control" type="text" name="nama_teh" id="">
+                                <label for="">Nama</label>
+                                <input class="form-control" type="text" name="nama" id="">
                             </div>
                             <div class="form-group">
-                                <label for="">Nutrisi</label>
-                                <input class="form-control" type="text" name="nutrisi_teh" id="">
-                            </div>
-                             <div class="form-group">
-                                <label for="">Harga Teh</label>
-                                <input class="form-control" type="text" name="harga_teh" id="">
-                            </div>
-                             <div class="form-group">
-                                <label for="">Kategori</label>
-                                <select class="form-control{{$errors->has('kategori') ? ' has-error' : '' }}" type="text"
-                                    name="id_kategori" id="s2_demo3" required>
-                                    @foreach ($kategori as $data)
+                                <label for="">Nama Teh</label>
+                                <select class="form-control{{$errors->has('teh') ? ' has-error' : '' }}" type="text"
+                                    name="id_teh" id="s2_demo3" required>
+                                    @foreach ($teh as $data)
                                         <option value="{{$data->id}}">
-                                        {{$data->nama_kategori}}</option>
+                                        {{$data->nama_teh}}</option>
                                     @endforeach
                                 </select>
-                                @if ($errors->has('kategori'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('kategori')}}</strong>
-                                </span>
-                                @endif
                             </div>
                             <div class="form-group">
-                                <label for="">Gambar</label>
-                                <input class="form-control
-                                @error('gambar') is-invalid @enderror" type="file"
-                                name="gambar" id="" required>
-                                @error('gambar')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{$message}}</strong>
-                                </span>
-                                @enderror
+                                <label for="">Jumlah Barang</label>
+                                <input class="form-control" type="text" name="jumlah_teh" id="">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-outline-info">
